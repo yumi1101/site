@@ -9,36 +9,71 @@
 
     <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
     <title>Web-to-Caseウェブフォーム</title>
+    <link rel="stylesheet" href="/form.css">
 </head>
 <body>
     <!--  ----------------------------------------------------------------------  -->
     <!--  次の <FORM> 要素をページに追加してください。                                              -->
     <!--  ----------------------------------------------------------------------  -->
 
-    <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00DgL00000CQCTG" method="POST">
+    <div class="site-card">
+        <aside class="sidebar">
+            <div class="brand">Web-to-Case</div>
+            <div class="lead">お問い合わせフォーム — 必要事項をご入力ください。送信後は確認ページに遷移します。</div>
+        </aside>
 
-        <input type=hidden name="orgid" value="00DgL00000CQCTG">
-        <input type=hidden name="retURL" value="https://yumi1101.github.io/site/thanks.html">
+        <main class="content">
+            <h1>お問い合わせ</h1>
+            <p>以下のフォームに必要事項を入力し、「送信する」を押してください。</p>
 
-        <!--  ----------------------------------------------------------------------  -->
-        <!--  注意: これらの項目は、省略可能なデバッグ用要素です。デバッグモードでテストを行う場合は、これらの行をコメント解除してください。        -->
-        <!--  <input type="hidden" name="debug" value=1>                              -->
-        <!--  <input type="hidden" name="debugEmail" value="itoi@seraku.co.jp">       -->
-        <!--  ----------------------------------------------------------------------  -->
+            <form class="form" action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00DgL00000CQCTG" method="POST">
 
-        <label for="name">取引先責任者名</label><input  id="name" maxlength="80" name="name" size="20" type="text" /><br>
+                <input type=hidden name="orgid" value="00DgL00000CQCTG">
+                <input type=hidden name="retURL" value="https://yumi1101.github.io/site/thanks.html">
 
-        <label for="email">メール</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+                <!-- デバッグ用 (必要な場合は有効にしてください) -->
+                <!-- <input type="hidden" name="debug" value=1> -->
+                <!-- <input type="hidden" name="debugEmail" value="itoi@seraku.co.jp"> -->
 
-        <label for="phone">電話</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+                <div class="row">
+                    <div class="col">
+                        <label for="name">ご氏名</label>
+                        <input id="name" maxlength="80" name="name" size="20" type="text" placeholder="山田 太郎" required />
+                    </div>
+                    <div class="col">
+                        <label for="email">メールアドレス</label>
+                        <input id="email" maxlength="80" name="email" size="20" type="text" placeholder="you@example.com" required />
+                    </div>
+                </div>
 
-        <label for="subject">件名</label><input  id="subject" maxlength="80" name="subject" size="20" type="text" /><br>
+                <div class="row">
+                    <div class="col">
+                        <label for="phone">電話番号</label>
+                        <input id="phone" maxlength="40" name="phone" size="20" type="text" placeholder="090-1234-5678" />
+                    </div>
+                    <div class="col">
+                        <label for="subject">お問い合わせ件名</label>
+                        <input id="subject" maxlength="80" name="subject" size="20" type="text" placeholder="例: 製品についての質問" required />
+                    </div>
+                </div>
 
-        <label for="description">説明</label><textarea name="description"></textarea><br>
+                <div>
+                    <label for="description">お問い合わせ内容</label>
+                    <textarea id="description" name="description" placeholder="お問い合わせの詳細を入力してください" required></textarea>
+                    <div class="helper">送信された情報は担当者が確認し、必要に応じて連絡します。</div>
+                </div>
 
-        <input type="submit" name="submit">
+                <div class="actions">
+                    <button type="submit" class="btn btn-primary">送信する</button>
+                    <button type="reset" class="btn btn-ghost">リセット</button>
+                </div>
 
-    </form>
+                <div class="footnote">※ プライバシーポリシーに同意したうえで送信してください。</div>
+
+            </form>
+
+        </main>
+    </div>
 </body>
 </html>
 
